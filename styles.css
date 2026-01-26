@@ -1,0 +1,110 @@
+body {
+	margin: 0;
+	background: #f6f8f7;
+	font-family: Inter, sans-serif;
+	color: #1f2937;
+}
+
+.container {
+	max-width: 900px;
+	margin: auto;
+	padding: 30px 20px;
+}
+
+h1,
+h2 {
+	text-align: center;
+	color: #0f5132;
+}
+
+.time {
+	font-size: 26px;
+	font-weight: 600;
+	color: #065f46;
+	text-align: center;
+}
+
+#todayDate {
+	text-align: center;
+	font-size: 16px;
+	color: #374151;
+	margin-bottom: 10px;
+	font-weight: 500;
+}
+
+.countdown {
+	font-size: 20px;
+	font-weight: bold;
+	color: #991b1b;
+}
+
+.card {
+	background: #ffffff;
+	border-radius: 14px;
+	padding: 25px;
+	margin-bottom: 30px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dua-title {
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.arabic {
+	font-family: "Noto Naskh Arabic", serif;
+	font-size: 22px;
+	direction: rtl;
+	text-align: right;
+	margin: 10px 0;
+}
+
+.small {
+	font-size: 14px;
+	color: #4b5563;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+th,
+td {
+	padding: 10px;
+	border-bottom: 1px solid #e5e7eb;
+	text-align: center;
+}
+
+th {
+	background: #0f5132;
+	color: #fff;
+}
+
+.stage-rahmah {
+	background: #ecfdf5;
+}
+.stage-maghfirah {
+	background: #fefce8;
+}
+.stage-nijat {
+	background: #fef2f2;
+}
+
+.badge {
+	padding: 4px 10px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.rahmah {
+	background: #bbf7d0;
+}
+.maghfirah {
+	background: #fde68a;
+}
+.nijat {
+	background: #fecaca;
+}
