@@ -196,3 +196,136 @@ th {
 .nijat {
 	background: #fecaca;
 }
+
+/* =================================================
+   MOBILE & TABLET RESPONSIVENESS
+   (keeps desktop design intact)
+   ================================================= */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+	.container {
+		max-width: 100%;
+		padding: 24px 16px;
+	}
+}
+
+/* Large phones / small tablets (<= 768px) */
+@media (max-width: 768px) {
+	h1 {
+		font-size: 22px;
+	}
+
+	h2 {
+		font-size: 18px;
+	}
+
+	#todayDate {
+		font-size: 15px;
+	}
+
+	.card {
+		padding: 20px;
+		margin-bottom: 24px;
+	}
+
+	.time {
+		font-size: 24px;
+	}
+
+	.countdown {
+		font-size: 18px;
+	}
+
+	.arabic {
+		font-size: 20px;
+	}
+
+	table {
+		font-size: 13px;
+	}
+
+	th,
+	td {
+		padding: 8px 6px;
+	}
+}
+
+/* Phones (<= 480px) */
+@media (max-width: 480px) {
+	body {
+		padding: 0;
+	}
+
+	h1 {
+		font-size: 20px;
+	}
+
+	h2 {
+		font-size: 17px;
+	}
+
+	.container {
+		padding: 16px 12px;
+	}
+
+	.card {
+		padding: 16px;
+		border-radius: 12px;
+	}
+
+	.time {
+		font-size: 22px;
+	}
+
+	.countdown {
+		font-size: 16px;
+	}
+
+	.arabic {
+		font-size: 18px;
+		line-height: 1.8;
+	}
+
+	.small {
+		font-size: 13px;
+		line-height: 1.6;
+	}
+
+	table {
+		font-size: 12px;
+	}
+
+	th,
+	td {
+		padding: 6px 4px;
+	}
+
+	.badge {
+		font-size: 11px;
+		padding: 3px 8px;
+	}
+}
+
+/* Very small phones (<= 360px) */
+@media (max-width: 360px) {
+	h1 {
+		font-size: 18px;
+	}
+
+	h2 {
+		font-size: 16px;
+	}
+
+	.time {
+		font-size: 20px;
+	}
+
+	.countdown {
+		font-size: 15px;
+	}
+
+	table {
+		font-size: 11px;
+	}
+}
