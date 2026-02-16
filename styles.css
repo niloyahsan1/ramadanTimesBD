@@ -48,6 +48,18 @@ body {
 	cursor: pointer;
 }
 
+.nav-item a {
+	display: inline-block;
+	margin: 10px 0;
+	text-decoration: none;
+	color: #3f7d3a;
+	font-weight: 600;
+}
+
+.nav-item a:hover {
+	text-decoration: underline;
+}
+
 /* ==============================
    HERO
 ============================== */
@@ -236,6 +248,10 @@ td:last-child {
 	text-decoration: none;
 	color: #3f7d3a;
 	font-weight: 600;
+}
+
+.footer-content a:hover {
+	text-decoration: underline;
 }
 
 .footer-small {
