@@ -1,8 +1,17 @@
+/* ==============================
+   BASE
+============================== */
+
 body {
 	margin: 0;
 	background: #f3f5f2;
 	font-family: "Inter", sans-serif;
 	color: #2f2f2f;
+}
+
+/* Prevent content hiding behind fixed navbar */
+main {
+	padding-top: 90px;
 }
 
 .container {
@@ -12,24 +21,32 @@ body {
 }
 
 /* ==============================
-   TOP BAR
+   NAVBAR (Sticky)
 ============================== */
 
-.top-bar {
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+	background: rgba(243, 245, 242, 0.9);
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-container {
+	max-width: 1000px;
+	margin: auto;
+	padding: 15px 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 35px;
 }
 
-/* ==============================
-   CURRENT TIME BOX
-============================== */
-
-#currentTime {
+.nav-item {
 	font-weight: 600;
 	font-size: 15px;
-	color: #2f2f2f;
 	padding: 8px 14px;
 	border-radius: 12px;
 	border: 1px solid #cbd5c0;
@@ -39,29 +56,13 @@ body {
 	cursor: pointer;
 }
 
-#darkToggle {
-	padding: 8px 16px;
-	border-radius: 12px;
-	border: 1px solid #cbd5c0;
-	background: linear-gradient(180deg,
-			#e8efe6 0%,
-			#d7e2d4 100%);
-	cursor: pointer;
-	font-weight: 500;
-	transition: 0.2s ease;
-}
-
-#darkToggle:hover {
-	transform: translateY(-1px);
-}
-
 /* ==============================
    HERO
 ============================== */
 
 .hero {
 	text-align: center;
-	margin-bottom: 4px;
+	margin-bottom: 10px;
 }
 
 .hero h1 {
@@ -82,7 +83,6 @@ body {
 ============================== */
 
 .card-dua {
-	/* background: #e4ece2; */
 	background: linear-gradient(180deg,
 			#e8efe6 0%,
 			#d7e2d4 100%);
@@ -92,7 +92,6 @@ body {
 }
 
 .card-time {
-	/* background: #e4ece238; */
 	border-radius: 20px;
 	padding: 25px;
 	margin-top: -10px;
@@ -101,9 +100,6 @@ body {
 
 .card-table {
 	background: #e4ece2;
-	/* background: linear-gradient(180deg,
-			#e8efe6 0%,
-			#d7e2d4 100%); */
 	border-radius: 20px;
 	padding: 20px;
 	margin-bottom: 30px;
@@ -135,7 +131,6 @@ body {
 }
 
 .time-box {
-	/* background: #d7e2d4; */
 	background: linear-gradient(180deg,
 			#e8efe6 0%,
 			#d7e2d4 100%);
@@ -222,7 +217,6 @@ th {
 td {
 	padding: 12px;
 	font-size: 16px;
-	font-weight: normal;
 	border-bottom: 1px solid #e0e0e0;
 	border-right: 1px solid #e0e0e0;
 	text-align: center;
@@ -234,6 +228,31 @@ td:last-child {
 }
 
 /* ==============================
+   FOOTER
+============================== */
+
+.footer {
+	margin-top: 0px;
+	padding: 20px 20px;
+	text-align: center;
+	background: #e8efe6;
+}
+
+.footer-content a {
+	display: inline-block;
+	margin: 10px 0;
+	text-decoration: none;
+	color: #3f7d3a;
+	font-weight: 600;
+}
+
+.footer-small {
+	font-size: 15px;
+	color: #6b7280;
+	margin-top: 10px;
+}
+
+/* ==============================
    DARK MODE
 ============================== */
 
@@ -242,22 +261,12 @@ body.dark {
 	color: #C4C4C4;
 }
 
-/* HERO */
-body.dark .hero h1 {
-	color: #C4C4C4;
+body.dark .navbar {
+	background: rgba(17, 21, 16, 0.95);
+	border-bottom: 1px solid #1f2a1f;
 }
 
-body.dark .today-date {
-	color: #e5e7ebd3;
-}
-
-body.dark .location {
-	color: #9ca3af;
-}
-
-/* TOP BAR ITEMS */
-body.dark #currentTime,
-body.dark #darkToggle {
+body.dark .nav-item {
 	background: linear-gradient(180deg,
 			rgba(28, 51, 35, 0.95) 0%,
 			rgba(17, 29, 21, 0.98) 100%);
@@ -265,39 +274,35 @@ body.dark #darkToggle {
 	border: 1px solid rgba(74, 222, 128, 0.15);
 }
 
-/* CARD CONTAINER */
+body.dark .hero h1,
+body.dark .dua-title,
+body.dark .arabic {
+	color: #C4C4C4;
+}
+
+body.dark .location,
+body.dark .small {
+	color: #9ca3af;
+}
+
+body.dark .today-date {
+	color: #e5e7ebd3;
+}
+
 body.dark .card-dua,
 body.dark .card-table,
 body.dark .time-box {
 	background: #1D231D;
 }
 
-/* MAIN TIME COLOR */
 body.dark .time {
 	color: #428038;
 }
 
-/* COUNTDOWN */
 body.dark .countdown {
 	color: #ef4444;
 }
 
-/* SECONDARY TEXT */
-body.dark .small {
-	color: #9ca3af;
-}
-
-/* DUA TITLES */
-body.dark .dua-title {
-	color: #C4C4C4;
-}
-
-/* ARABIC TEXT */
-body.dark .arabic {
-	color: #C4C4C4;
-}
-
-/* TABLE */
 body.dark table {
 	background: #0D0D0D;
 }
@@ -312,6 +317,17 @@ body.dark td {
 	border-right: 1px solid rgba(74, 222, 128, 0.08);
 }
 
+body.dark .footer {
+	background: #1D231D;
+}
+
+body.dark .footer-content a {
+	color: #4ea34f;
+}
+
+body.dark .footer-small {
+	color: #9ca3af;
+}
 
 /* ==============================
    RESPONSIVE
@@ -336,10 +352,6 @@ body.dark td {
 @media (max-width: 500px) {
 	.container {
 		padding: 25px 15px;
-	}
-
-	.card {
-		padding: 25px;
 	}
 
 	.time {

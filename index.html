@@ -16,13 +16,16 @@
 
 <body>
 
-  <div class="container">
-
-    <!-- TOP BAR -->
-    <div class="top-bar">
-      <div id="currentTime"></div>
-      <button id="darkToggle">⏾ Dark</button>
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div id="currentTime" class="nav-item"></div>
+      <button id="darkToggle" class="nav-item">⏾ Dark</button>
     </div>
+  </nav>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="container">
 
     <!-- HERO -->
     <header class="hero">
@@ -63,7 +66,6 @@
 
       <div class="dua-grid">
 
-        <!-- SEHRI NIYOT -->
         <div class="dua-box">
           <div class="dua-title">রোজার নিয়ত</div>
 
@@ -78,7 +80,6 @@
           </div>
         </div>
 
-        <!-- IFTAR DUA -->
         <div class="dua-box">
           <div class="dua-title">ইফতারের দোয়া</div>
 
@@ -88,7 +89,6 @@
 
           <div class="small">
             আল্লাহুম্মা লাকা ছুমতু ওয়া তাওয়াক্কালতু আলা রিজকিকা ওয়া আফতারতু বি রহমাতিকা ইয়া আরহামার রাহিমীন।
-            রাহিমিন।
           </div>
         </div>
 
@@ -121,7 +121,18 @@
 
     </section>
 
-  </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Made with ❤️ for Ramadan 2026</p>
+      <p class="footer-small">
+        © 2026 <a href="https://github.com/niloyahsan1/ramadanTimesBD" target="_blank">Ramadan Times BD</a> | All rights
+        reserved.
+      </p>
+    </div>
+  </footer>
 
 </body>
 
