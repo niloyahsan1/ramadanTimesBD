@@ -27,6 +27,18 @@ Built with simplicity, performance, and accessibility in mind.
 
 ---
 
+## 📱 Android App Version
+
+Ramadan Times BD is also available as an Android application.
+
+📥 **Download APK (v1.0):**
+👉 [Download Ramadan Times BD App](https://github.com/niloyahsan1/RamadanTimesBD/releases/download/v1/RamadanTimesBD.apk)
+
+> ⚠️ Since the app is not published on Google Play Store, Android may show a security warning.
+> You may need to enable **Install from Unknown Sources** in your device settings.
+
+---
+
 ## 📸 Demo Screenshot
 
 <p align="center">
@@ -51,6 +63,7 @@ Built with simplicity, performance, and accessibility in mind.
 ├── styles.css
 ├── wholeYear.js
 ├── ramadan.js
+|-- README.md
 ├── assets/
 ```
 
@@ -71,6 +84,7 @@ Built with simplicity, performance, and accessibility in mind.
 - Multi-city selection
 - Multi-language support
 - Notification reminders
+- Play Store release
 
 ---
 
