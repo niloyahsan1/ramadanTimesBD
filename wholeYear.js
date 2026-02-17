@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-	/* ===== DARK MODE TOGGLE ===== */
+	/* --------------- DARK MODE TOGGLE --------------- */
 	const darkBtn = document.getElementById("darkToggle");
 	const themeIcon = document.getElementById("themeIcon");
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	/* ===== LIVE CURRENT TIME ===== */
+	/* --------------- LIVE CURRENT TIME --------------- */
 	function updateCurrentTime() {
 		const now = new Date();
 
@@ -45,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const month = now.getMonth() + 1;
 	const year = now.getFullYear();
 
-	/* ===== HELPERS ===== */
-
+	/* --------------- HELPERS --------------- */
 	function cleanTime(t) {
 		return t.split(" ")[0];
 	}
@@ -82,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	/* ===== SHOW TODAY DATE ===== */
+	/* --------------- SHOW TODAY DATE --------------- */
 	const todayDateText = new Date().toLocaleDateString("bn-BD", {
 		weekday: "long",
 		year: "numeric",
@@ -95,13 +94,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		todayDateEl.innerText = todayDateText;
 	}
 
-	/* ===== FETCH CALENDAR ===== */
+	/* --------------- FETCH CALENDAR --------------- */
 	fetch(
 		`https://api.aladhan.com/v1/calendarByCity?city=${city}&country=${country}&method=1&school=1&month=${month}&year=${year}`,
 	)
 		.then((r) => r.json())
 		.then((d) => {
-			/* ===== MONTHLY TABLE ===== */
+			/* --------------- MONTHLY TABLE --------------- */
 			let html = "";
 
 			const todayDateNumber = new Date().getDate();
@@ -128,8 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			document.getElementById("tableBody").innerHTML = html;
 
-			/* ===== TODAY LOGIC ===== */
-
+			/* --------------- TODAY LOGIC --------------- */
 			const todayIndex = todayDateNumber - 1;
 			const todayData = d.data[todayIndex].timings;
 

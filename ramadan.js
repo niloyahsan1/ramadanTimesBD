@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-	/* ===== DARK MODE TOGGLE ===== */
+	/* --------------- DARK MODE TOGGLE --------------- */
 	const darkBtn = document.getElementById("darkToggle");
 	const themeIcon = document.getElementById("themeIcon");
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	/* ===== LIVE CURRENT TIME ===== */
+	/* --------------- LIVE CURRENT TIME --------------- */
 	function updateCurrentTime() {
 		const now = new Date();
 
@@ -42,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const city = "Dhaka";
 	const country = "Bangladesh";
 
-	/* ===== HELPERS ===== */
-
+	/* --------------- HELPERS --------------- */
 	function cleanTime(t) {
 		return t.split(" ")[0];
 	}
@@ -81,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	/* ===== SHOW TODAY DATE (BANGLA) ===== */
+	/* --------------- SHOW TODAY DATE (BANGLA) --------------- */
 	const todayDateText = new Date().toLocaleDateString("bn-BD", {
 		weekday: "long",
 		year: "numeric",
@@ -94,11 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		todayDateEl.innerText = todayDateText;
 	}
 
-	/* ===== RAMADAN 2026 DATES ===== */
+	/* --------------- RAMADAN 2026 DATES --------------- */
 	const RAMADAN_START = new Date("2026-02-19");
 	const RAMADAN_END = new Date("2026-03-20");
 
-	/* ===== FETCH FEB + MAR 2026 ===== */
+	/* --------------- FETCH FEB 2026 + MAR 2026 --------------- */
 	Promise.all([
 		fetch(
 			`https://api.aladhan.com/v1/calendarByCity?city=${city}&country=${country}&method=1&school=1&month=2&year=2026`,
@@ -116,8 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			return date >= RAMADAN_START && date <= RAMADAN_END;
 		});
 
-		/* ===== TABLE ===== */
-
+		/* --------------- TABLE --------------- */
 		let html = "";
 
 		const today = new Date();
@@ -148,8 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		document.getElementById("tableBody").innerHTML = html;
 
-		/* ===== TODAY COUNTDOWN ===== */
-
+		/* --------------- TODAY COUNTDOWN --------------- */
 		const todayData = ramadanDays.find(
 			(d) => d.date.gregorian.date === todayKey,
 		);
