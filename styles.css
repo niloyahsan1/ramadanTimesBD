@@ -232,6 +232,15 @@ td:last-child {
 	border-right: none;
 }
 
+.today-row {
+	background: rgba(63, 125, 58, 0.08);
+}
+
+.today-row td {
+	font-weight: 700;
+}
+
+
 /* ==============================
    FOOTER
 ============================== */
@@ -324,6 +333,10 @@ body.dark td {
 	border-right: 1px solid rgba(74, 222, 128, 0.08);
 }
 
+body.dark .today-row {
+	background: rgba(66, 128, 56, 0.15);
+}
+
 body.dark .footer {
 	background: #1D231D;
 }
@@ -355,11 +368,16 @@ body.dark .footer-small {
 		font-size: 34px;
 	}
 
-	/* Reduce table spacing */
+	/* Table compact */
+	table {
+		font-size: 16px;
+		width: 100%;
+	}
+
 	th,
 	td {
 		padding: 10px;
-		font-size: 14px;
+		font-size: 18px;
 	}
 }
 

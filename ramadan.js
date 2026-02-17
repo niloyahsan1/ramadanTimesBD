@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const city = "Dhaka";
 	const country = "Bangladesh";
 
-	/* ===== helpers ===== */
+	/* ===== HELPERS ===== */
+
 	function cleanTime(t) {
 		return t.split(" ")[0];
 	}
@@ -52,14 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			.join("");
 	}
 
-	// format countdown in Bangla
 	function formatBanglaTime(h, m, s) {
 		return `${toBangla(h)} ঘন্টা ${toBangla(m)} মিনিট ${toBangla(s)} সেকেন্ড`;
 	}
 
-	// format date and month in Bangla
 	function formatBanglaDate(dateStr) {
-		// dateStr is like "18-02-2026"
 		const [dd, mm, yyyy] = dateStr.split("-");
 		const dateObj = new Date(`${yyyy}-${mm}-${dd}`);
 
@@ -69,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	// ===== SHOW TODAY DATE (BANGLA) =====
+	/* ===== SHOW TODAY DATE (BANGLA) ===== */
 	const todayDateText = new Date().toLocaleDateString("bn-BD", {
 		weekday: "long",
 		year: "numeric",
@@ -82,11 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		todayDateEl.innerText = todayDateText;
 	}
 
-	// ===== Ramadan 2026 dates =====
+	/* ===== RAMADAN 2026 DATES ===== */
 	const RAMADAN_START = new Date("2026-02-19");
 	const RAMADAN_END = new Date("2026-03-20");
 
-	/* ===== fetch Feb + Mar 2026 ===== */
+	/* ===== FETCH FEB + MAR 2026 ===== */
 	Promise.all([
 		fetch(
 			`https://api.aladhan.com/v1/calendarByCity?city=${city}&country=${country}&method=1&school=1&month=2&year=2026`,
@@ -96,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		).then((r) => r.json()),
 	]).then(([feb, mar]) => {
 		const allDays = [...feb.data, ...mar.data];
+
 		const ramadanDays = allDays.filter((d) => {
 			const date = new Date(
 				d.date.gregorian.date.split("-").reverse().join("-"),
@@ -104,42 +103,38 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 
 		/* ===== TABLE ===== */
+
 		let html = "";
-		ramadanDays.forEach((day, i) => {
-			let stage, cls, badge;
-			if (i < 10) {
-				stage = "রহমাহ";
-				cls = "stage-rahmah";
-				badge = "rahmah";
-			} else if (i < 20) {
-				stage = "মাগফিরাহ";
-				cls = "stage-maghfirah";
-				badge = "maghfirah";
-			} else {
-				stage = "নাজাত";
-				cls = "stage-nijat";
-				badge = "nijat";
-			}
 
-			html += `
-        <tr class="${cls}">
-          <td>${toBangla(i + 1)}</td>
-          <td>${formatBanglaDate(day.date.gregorian.date)}</td>
-          <td>${toBangla(to12(cleanTime(day.timings.Fajr)))}</td>
-          <td>${toBangla(to12(cleanTime(day.timings.Maghrib)))}</td>
-        </tr>
-      `;
-		});
-
-		document.getElementById("tableBody").innerHTML = html;
-
-		/* ===== TODAY COUNTDOWN (ONLY IF RAMADAN DAY) ===== */
 		const today = new Date();
 		const todayKey = today
 			.toLocaleDateString("en-GB")
 			.split("/")
 			.reverse()
 			.join("-");
+
+		ramadanDays.forEach((day, i) => {
+			let cls;
+
+			if (i < 10) cls = "stage-rahmah";
+			else if (i < 20) cls = "stage-maghfirah";
+			else cls = "stage-nijat";
+
+			const isToday = day.date.gregorian.date === todayKey;
+
+			html += `
+				<tr class="${cls} ${isToday ? "today-row" : ""}">
+					<td>${toBangla(i + 1)}</td>
+					<td>${formatBanglaDate(day.date.gregorian.date)}</td>
+					<td>${toBangla(to12(cleanTime(day.timings.Fajr)))}</td>
+					<td>${toBangla(to12(cleanTime(day.timings.Maghrib)))}</td>
+				</tr>
+			`;
+		});
+
+		document.getElementById("tableBody").innerHTML = html;
+
+		/* ===== TODAY COUNTDOWN ===== */
 
 		const todayData = ramadanDays.find(
 			(d) => d.date.gregorian.date === todayKey,
@@ -154,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		const maghrib = cleanTime(todayData.timings.Maghrib);
 
 		document.getElementById("sehriToday").innerText = toBangla(to12(fajr));
+
 		document.getElementById("iftarToday").innerText = toBangla(
 			to12(maghrib),
 		);
@@ -161,31 +157,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		function updateCountdown() {
 			const now = new Date();
 
-			// Sehri target (Fajr)
 			const [fh, fm] = fajr.split(":");
 			const sehri = new Date();
 			sehri.setHours(fh, fm, 0, 0);
 
-			// Iftar target (Maghrib)
 			const [mh, mm] = maghrib.split(":");
 			const iftar = new Date();
 			iftar.setHours(mh, mm, 0, 0);
 
 			let target, label;
 
-			// Night → Sehri countdown
 			if (now < sehri) {
 				target = sehri;
 				label = "সেহরির বাকি সময়";
-			}
-
-			// Day → Iftar countdown
-			else if (now < iftar) {
+			} else if (now < iftar) {
 				target = iftar;
 				label = "ইফতারের বাকি সময়";
-			}
-			// After iftar
-			else {
+			} else {
 				document.getElementById("countdown").innerText =
 					"ইফতারের সময় হয়েছে 🌙";
 				return;
@@ -197,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			const s = Math.floor((diff % 60000) / 1000);
 
 			document.getElementById("countdown").innerText =
-				`${label} \n ${formatBanglaTime(h, m, s)}`;
+				`${label}\n${formatBanglaTime(h, m, s)}`;
 		}
 
 		updateCountdown();
