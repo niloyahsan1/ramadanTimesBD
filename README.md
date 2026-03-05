@@ -6,8 +6,6 @@ A modern, responsive web application providing accurate Sehri and Iftar times fo
 
 Built with simplicity, performance, and accessibility in mind.
 
----
-
 ## ✨ Features
 
 - 🕌 **Accurate Sehri & Iftar Times**
@@ -19,13 +17,9 @@ Built with simplicity, performance, and accessibility in mind.
 - 📍 **Location-based Prayer Times (Dhaka, BD)**
 - 🎯 **Automatic Today Highlighting**
 
----
-
 ## 🚀 Live Preview
 
 🔗 Check out the live preview of the application here: [Ramadan Times BD](https://ramadantimesbd.vercel.app/)
-
----
 
 ## 📱 Android App Version
 
@@ -37,15 +31,11 @@ Ramadan Times BD is also available as an Android application.
 > ⚠️ Since the app is not published on Google Play Store, Android may show a security warning.
 > You may need to enable **Install from Unknown Sources** in your device settings.
 
----
-
 ## 📸 Demo Screenshot
 
 <p align="center">
   <img src="./assets/demo.png" width="800" />
 </p>
-
----
 
 ## 🛠 Tech Stack
 
@@ -53,8 +43,6 @@ Ramadan Times BD is also available as an Android application.
 - **CSS3 (Custom responsive layout + Dark mode)**
 - **Vanilla JavaScript**
 - **AlAdhan Prayer Times API**
-
----
 
 ## 📂 Project Structure
 
@@ -67,8 +55,6 @@ Ramadan Times BD is also available as an Android application.
 ├── assets/
 ```
 
----
-
 ## 📦 How It Works
 
 - Fetches prayer time data from the AlAdhan API.
@@ -77,8 +63,6 @@ Ramadan Times BD is also available as an Android application.
 - Updates countdown every second.
 - Highlights today's row automatically.
 
----
-
 ## 🔮 Future Improvements
 
 - Multi-city selection
@@ -86,13 +70,9 @@ Ramadan Times BD is also available as an Android application.
 - Notification reminders
 - Play Store release
 
----
-
 ## 👨‍💻 Author
 
 This project was developed by [Niloy Ahsan](https://github.com/niloyahsan1).
-
----
 
 ## 📜 License
 
